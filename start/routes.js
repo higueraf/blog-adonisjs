@@ -18,7 +18,19 @@ const Route = use('Route')
 
 
 Route.group(() => {
-    Route.post('users/create', 'UserController.store'),
-    Route.post('users/login', 'UserController.login')
-}
-).prefix('api/v1')
+  Route.get('users', 'UserController.index'),
+  Route.post('users', 'UserController.store'),
+  Route.get('users/:id', 'UserController.show'),
+  Route.put('users/:id', 'UserController.update'),
+  Route.delete('users/:id', 'UserController.destroy'),
+  Route.get('blogs', 'BlogController.index'),
+  Route.get('blogs/:id', 'BlogController.show'),
+  Route.post('blogs', 'BlogController.store'),
+  Route.put('blogs/:id', 'BlogController.update'),
+  Route.delete('blogs/:id', 'BlogController.destroy')
+}).prefix('api/v1').middleware('auth');
+
+Route.group(() => {
+  Route.post('users/login', 'UserController.login'),
+  Route.get('users/register', 'UserController.register')
+}).prefix('api/v1')
