@@ -4,16 +4,16 @@
 const Schema = use('Schema')
 
 class CommentSchema extends Schema {
-  up () {
+  up() {
     this.create('comments', (table) => {
       table.increments()
       table.string('comment', 100).notNullable()
-      table.integer('blog_id').unsigned().references('id').inTable('blogs')
+      table.integer('post_id').unsigned().references('id').inTable('posts')
       table.timestamps()
     })
   }
 
-  down () {
+  down() {
     this.drop('comments')
   }
 }

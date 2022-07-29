@@ -19,18 +19,24 @@ const Route = use('Route')
 
 Route.group(() => {
   Route.get('users', 'UserController.index'),
-  Route.post('users', 'UserController.store'),
-  Route.get('users/:id', 'UserController.show'),
-  Route.put('users/:id', 'UserController.update'),
-  Route.delete('users/:id', 'UserController.destroy'),
-  Route.get('blogs', 'BlogController.index'),
-  Route.get('blogs/:id', 'BlogController.show'),
-  Route.post('blogs', 'BlogController.store'),
-  Route.put('blogs/:id', 'BlogController.update'),
-  Route.delete('blogs/:id', 'BlogController.destroy')
+    Route.post('users', 'UserController.store'),
+    Route.get('users/:id', 'UserController.show'),
+    Route.put('users/:id', 'UserController.update'),
+    Route.delete('users/:id', 'UserController.destroy'),
+    Route.get('posts', 'PostController.index'),
+    Route.get('posts/:id', 'PostController.show'),
+    Route.post('posts', 'PostController.store'),
+    Route.put('posts/:id', 'PostController.update'),
+    Route.delete('posts/:id', 'PostController.destroy'),
+    Route.get('comments/post/:post_id', 'CommentController.index'),
+    Route.get('comments/:id', 'CommentController.show'),
+    Route.post('comments', 'CommentController.store'),
+    Route.put('comments/:id', 'CommentController.update'),
+    Route.delete('comments/:id', 'CommentController.destroy')
+
 }).prefix('api/v1').middleware('auth');
 
 Route.group(() => {
   Route.post('users/login', 'UserController.login'),
-  Route.get('users/register', 'UserController.register')
+    Route.post('users/register', 'UserController.register')
 }).prefix('api/v1')

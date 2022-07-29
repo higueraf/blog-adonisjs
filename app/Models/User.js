@@ -34,8 +34,8 @@ class User extends Model {
   tokens() {
     return this.hasMany('App/Models/Token')
   }
-  blogs() {
-    return this.hasMany('App/Models/Blog')
+  posts() {
+    return this.hasMany('App/Models/Post')
   }
   static get hidden() {
     return ['password']

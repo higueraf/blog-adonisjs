@@ -3,8 +3,8 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-class Blog extends Model {
-    blogs() {
+class Post extends Model {
+    user() {
         return this.belongsTo('App/Models/User')
     }
     comments() {
@@ -12,4 +12,4 @@ class Blog extends Model {
     }
 }
 
-module.exports = Blog
+module.exports = Post

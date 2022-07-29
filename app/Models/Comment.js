@@ -4,8 +4,8 @@
 const Model = use('Model')
 
 class Comment extends Model {
-    blog() {
-        return this.belongsTo('App/Models/Blog')
+    post() {
+        return this.belongsTo('App/Models/Post')
     }
 }
 
